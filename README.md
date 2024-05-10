@@ -1,2 +1,3 @@
 # JavaScript
-hello everyoine welcome to my repo
+
+HII, THIS IS PARAS SINGH WELCOME TO MY J.S REPO, INTERESTING AND OUTSTANDING ON THE WAY
