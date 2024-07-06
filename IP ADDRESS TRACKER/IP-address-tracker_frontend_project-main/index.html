@@ -29,58 +29,44 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-	<main>
-		<div class="top">
-			<h1 class="title">IP Address Tracker</h1>
-			<form action="" autocomplete="off">
-				<input type="text" id="ip-input" autofocus placeholder="Search for any IP address or domain">
-				<button type="submit"><img src="images/icon-arrow.svg" alt="Submit Button"></button>
-			</form>
-			<div class="info" id="info">
-				<div class="box ip-info-box">
-					<span class="field-name">ip address</span>
-					<span class="info-field" id="ip-info"></span>
-				</div>
-				<div class="box location-info-box">
-					<span class="field-name">location</span>
-					<span class="info-field" id="location-info"></span>
-				</div>
-				<div class="box timezone-info-box">
-					<span class="field-name">timezone</span>
-					<span class="info-field" id="timezone-info"></span>
-				</div>
-				<div class="box isp-info-box">
-					<span class="field-name">isp</span>
-					<span class="info-field" id="isp-info"></span>
-				</div>
-			</div>
-		</div>
-		<dialog id="modal">
-			<h3><i class="fas fa-exclamation-triangle"></i> OH SNAP</h3>
-			<p id="error-message"></p>
-			<button id="close-btn">Close</button>
-		</dialog>
-		<div id="map"></div>
-	</main>
-	<footer class="footer">
-		<p>Engineered with love by <a href="https://github.com/himanshuat" target="_blank" rel="noopener">Himanshu Tegyalwar</a></p>
-		<div class="social">
-			<a href="https://www.facebook.com/himanshu.tegyalwar" target="_blank" rel="noopener" title="social-link">
-				<i class="fab fa-facebook"></i>
-			</a>
-			<a href="https://www.instagram.com/himaanshu.at" target="_blank" rel="noopener" title="social-link">
-				<i class="fab fa-instagram"></i>
-			</a>
-			<a href="https://twitter.com/himanshuat_" target="_blank" rel="noopener" title="social-link">
-				<i class="fab fa-twitter"></i>
-			</a>
-			<a href="https://www.linkedin.com/in/himanshu-tegyalwar" target="_blank" rel="noopener" title="social-link">
-				<i class="fab fa-linkedin"></i>
-			</a>
-		</div>
-	</footer>
-	<script src="script.js"></script>
-</body>
 
+<body>
+    <main>
+        <header class="top">
+            <h1 class="title">IP Address Tracker</h1>
+            <form action="" autocomplete="off" class="search-form">
+                <input type="text" id="ip-input" autofocus placeholder="Search for any IP address or domain">
+                <button type="submit">Submit
+                </button>
+            </form>
+        </header>
+        <section class="info-section">
+            <div class="info-box">
+                <div class="box ip-info-box">
+                    <span class="field-name">IP Address</span>
+                    <span class="info-field" id="ip-info"></span>
+                </div>
+                <div class="box location-info-box">
+                    <span class="field-name">Location</span>
+                    <span class="info-field" id="location-info"></span>
+                </div>
+                <div class="box timezone-info-box">
+                    <span class="field-name">Timezone</span>
+                    <span class="info-field" id="timezone-info"></span>
+                </div>
+                <div class="box isp-info-box">
+                    <span class="field-name">ISP</span>
+                    <span class="info-field" id="isp-info"></span>
+                </div>
+            </div>
+        </section>
+        <dialog id="modal">
+            <h3><i class="fas fa-exclamation-triangle"></i> OH SNAP</h3>
+            <p id="error-message"></p>
+            <button id="close-btn">Close</button>
+        </dialog>
+        <div id="map"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
 </html>
