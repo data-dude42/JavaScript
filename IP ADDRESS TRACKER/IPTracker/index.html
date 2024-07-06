@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg" sizes="32x32" href="./images/icon-location.svg">
+	<title>IP Address Tracker</title>
+
+	<!-- Font Awesome Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+		integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+	<!-- Rubik Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+		integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+		crossorigin="" />
+
+	<!-- Leaflet CSS -->
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+		integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+		crossorigin=""></script>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+	<main>
+		<header class="top">
+			<h1 class="title">IP Address Tracker</h1>
+			<form action="" autocomplete="off" class="search-form">
+				<input type="text" id="ip-input" autofocus placeholder="Search for any IP address or domain">
+				<button type="submit">Submit
+				</button>
+			</form>
+		</header>
+		<section class="info-section">
+			<div class="info-box">
+				<div class="box ip-info-box">
+					<span class="field-name">IP Address</span>
+					<span class="info-field" id="ip-info"></span>
+				</div>
+				<div class="box location-info-box">
+					<span class="field-name">Location</span>
+					<span class="info-field" id="location-info"></span>
+				</div>
+				<div class="box timezone-info-box">
+					<span class="field-name">Timezone</span>
+					<span class="info-field" id="timezone-info"></span>
+				</div>
+				<div class="box isp-info-box">
+					<span class="field-name">ISP</span>
+					<span class="info-field" id="isp-info"></span>
+				</div>
+			</div>
+		</section>
+		<dialog id="modal">
+			<h3><i class="fas fa-exclamation-triangle"></i> OH SNAP</h3>
+			<p id="error-message"></p>
+			<button id="close-btn">Close</button>
+		</dialog>
+		<div id="map"></div>
+	</main>
+	<script src="script.js"></script>
+	<script src="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "firebase/app";
+		import { getAnalytics } from "firebase/analytics";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyDZWpWvJ0NGWS4a3HqveTga0CCO1mOKXNA",
+			authDomain: "ip-tracker-7fcb4.firebaseapp.com",
+			projectId: "ip-tracker-7fcb4",
+			storageBucket: "ip-tracker-7fcb4.appspot.com",
+			messagingSenderId: "432128761749",
+			appId: "1:432128761749:web:529605da70c281ba95609c",
+			measurementId: "G-FCGG36LKLF"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	</script>
+
+
+</body>
+
+</html>
