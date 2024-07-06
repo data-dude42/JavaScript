@@ -1,119 +1,136 @@
 # IP Address Tracker
 
-## Welcome! 👋
+## Description
 
-## Table of contents
+A web app to search for any IP address or domain, displaying its location, timezone, and ISP on an interactive map.
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [How to setup the project](#how-to-setup-the-project)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+## Features
 
-## Overview
+- Search for IP address or domain
+- Display IP address, location, timezone, and ISP
+- Interactive map with Leaflet
+- Error handling with modal dialog
 
-### The challenge
-
-Discover the location, timezone, and ISP of any IP address with the IP Address Tracker!
-
-This webpage allows users to
-
-- View the optimal layout for each page depending on their device's screen size.
-- See hover states for all interactive elements on the page.
-- Find their own IP address on the map on the initial page load.
-  Users can also search for any IP addresses or domains and see the key information and location.
-
-### How to setup the project
-
-To set up the project locally, follow these steps:
-
-1. Clone the repository using GitHub Desktop or Git Bash:
-   ```bash
-   git clone https://github.com/SartHak-0-Sach/IP-address-tracker_frontend_project.git
-   ```
-2. Open the project folder in your code editor.
-3. Run the project using a live server extension or deploy it using Netlify, Vercel, or another web hosting and deployment service.
-
-### Screenshot
-
-![Design Preview](./design/active-states.jpg)
-
-### Links
-
-- Solution URL: [GitHub Repository](https://github.com/SartHak-0-Sach/IP-address-tracker_frontend_project)
-- Live Site URL: [Live Site](https://ip-address-tracker-app-project.netlify.app/)
-
-## My process
-
-### Built with
+## Technologies
 
 - HTML5
 - CSS3
 - JavaScript
-- Leaflet.js (for the map)
-- IP Geolocation API (for fetching IP address details)
+- Leaflet.js
+- Font Awesome
+- Google Fonts
 
-You will find all the required assets in the `/design` folder. The assets are already optimized.
+## Usage
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+1. Clone the repo and navigate to the directory:
+   ```sh
+   git clone https://github.com/your-username/ip-address-tracker.git
+   cd ip-address-tracker
+   ```
 
-### What I learned
+# IP Address Tracker Script
 
-This project is great at understanding how to execute basic CSS features like flexbox, responsive layout using media queries for both desktop and mobile and all sizes in between as shown below-
+## Description
 
-```css
-@media (max-width: 920px) {
-    .info-field {
-        font-size: .9rem;
-    }
-}
+This JavaScript file is the core functionality provider for the IP Address Tracker web application. It allows users to input an IP address or domain, fetches the relevant data, and displays it on an interactive map along with additional details such as location, timezone, and ISP. The script includes functionalities for error handling, displaying a loading indicator during data fetching, and maintaining a list of recent searches.
 
-@media (max-width: 770px) {
-    #ip-input {
-        width: min(380px, 70%);
-    }
+## Features
 
-    .info {
-        width: 85vw;
-    }
-}
+- **Fetch IP Information**: Retrieves IP address information including location, timezone, and ISP.
+- **Interactive Map**: Utilizes Leaflet.js to display the IP address location on an interactive map.
+- **Error Handling**: Displays errors in a modal dialog.
+- **Loading Indicator**: Shows a loading indicator during data fetching.
+- **Recent Searches**: Maintains and displays a list of recent IP searches.
 
-@media (max-width: 600px) {
-    .top {
-        height: 35vh;
-        padding: .7rem;
-    }
+## Implementation Details
 
-    .title {
-        font-size: 1.5rem;
-    }
+### Main Functions
 
-    .info {
-        width: 75vw;
-        flex-direction: column;
-        text-align: center;
-        gap: 1.1rem;
-        top: 12%;
-    }
+1. **renderResults(data)**
 
-    .box {
-        width: 100%;
-        border: none;
-    }
-}
-```
+   - **Parameters**: `data` (Object) - The IP information fetched from the API.
+   - **Description**: Updates the DOM elements with the IP information and centers the map on the provided location.
+   - **Error Handling**: Throws an error if the `data` object contains an error.
+2. **displayError(e)**
 
-### Continued development
+   - **Parameters**: `e` (Error/String) - The error to be displayed.
+   - **Description**: Displays the error message in a modal dialog.
+3. **showLoading()**
 
-The continuously learning journey of a programmer never ends. This project made me realize that there are many concepts that I need to work upon including fundamentals like flex-box and its properties, to more complex concepts like working with fetch and async await in javascript. These areas are some that I think I need to work more upon in the upcoming future as they highlight some of the most significant regions of web development that are important for every developer to know of.
+   - **Description**: Sets the display style of the loading indicator to `block`, making it visible.
+4. **hideLoading()**
 
-These key points mentioned here will help me grow accountable and consistent towards improving at writing good quality code and be a successful full stack developer one day.
+   - **Description**: Sets the display style of the loading indicator to `none`, hiding it.
+5. **addToRecentSearches(data)**
 
-**Happy coding!** ☺️🚀
+   - **Parameters**: `data` (Object) - The IP information to be added to recent searches.
+   - **Description**: Creates a clickable element with the IP information and appends it to the recent searches container. When clicked, it re-renders the results for that IP.
+
+### Event Listeners
+
+- **formEl.onsubmit**
+
+  - **Description**: Prevents the default form submission behavior, shows the loading indicator, fetches IP information based on user input, handles the response or error, and resets the form.
+- **closeBtn.onclick**
+
+  - **Description**: Closes the modal dialog displaying error messages.
+
+### Initialization
+
+- Fetches and displays the user's current IP information on page load.
+
+### Dependencies
+
+- **Leaflet.js**: For rendering the interactive map. Loaded from a CDN.
+- **ipapi.co**: API service used for fetching IP information.
+
+## Usage
+
+1. **Include the Script**
+
+   - Ensure `script.js` is included in your HTML file:
+     ```html
+     <script src="script.js"></script>
+     ```
+2. **HTML Structure**
+
+   - Ensure the following elements are present in your HTML, with the correct IDs and classes:
+     ```html
+     <form>
+         <input type="text" id="ip-input">
+         <button type="submit">Submit</button>
+     </form>
+
+     <div id="ip-info"></div>
+     <div id="location-info"></div>
+     <div id="timezone-info"></div>
+     <div id="isp-info"></div>
+
+     <dialog id="modal">
+         <p id="error-message"></p>
+         <button id="close-btn">Close</button>
+     </dialog>
+
+     <div id="map"></div>
+     <div id="loading-indicator">Loading...</div>
+     <div id="recent-searches"></div>
+     ```
+3. **Styles**
+
+   - Customize styles for elements such as `#loading-indicator` and `.recent-search` in your CSS file to improve the UI.
+
+### Example Usage
+
+1. **Form Submission**
+
+   - User enters an IP address or domain in the input field and submits the form.
+   - The script fetches the data, displays it in the designated elements, updates the map, and logs the search in recent searches.
+2. **Recent Searches**
+
+   - Recent searches are displayed below the main form.
+   - Clicking a recent search item re-renders the results for that IP address.
+
+### Notes
+
+- Ensure the API key for the map service is valid and has necessary permissions.
+- Modify URLs and element references as needed to fit your specific use case.
