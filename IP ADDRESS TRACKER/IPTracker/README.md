@@ -4,6 +4,8 @@
 
 A web app to search for any IP address or domain, displaying its location, timezone, and ISP on an interactive map.
 
+Deployed on GoogleFireBase & here is the link: [IP Address Tracker (ip-tracker-7fcb4.web.app)](https://ip-tracker-7fcb4.web.app/)
+
 ## Features
 
 - Search for IP address or domain
